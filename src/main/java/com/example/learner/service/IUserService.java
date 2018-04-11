@@ -44,6 +44,14 @@ public interface IUserService {
      * @param id
      */
     void delete(Integer id);
+
+    User findByAccount(String account);
+
+    /**
+     * 更新用户信息
+     * @param newUser
+     */
+    void update(User newUser);
     /**
      * 上传头像
      */

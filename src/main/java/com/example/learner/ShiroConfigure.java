@@ -49,6 +49,7 @@ public class ShiroConfigure {
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
         filterChainDefinitionMap.put("/static/**", "anon"); // 静态资源匿名访问
         filterChainDefinitionMap.put("/css/**", "anon"); // 静态资源匿名访问
+        filterChainDefinitionMap.put("/js/**", "anon"); // 静态资源匿名访问
         filterChainDefinitionMap.put("/images/**", "anon"); // 静态资源匿名访问
         filterChainDefinitionMap.put("/semantic-ui/**", "anon"); // 静态资源匿名访问
         filterChainDefinitionMap.put("/logout", "logout");  // 用户退出，只需配置logout即可实现该功能
@@ -63,11 +64,13 @@ public class ShiroConfigure {
         filterChainDefinitionMap.put("/register","anon");
         filterChainDefinitionMap.put("/forgotPassword","anon");
         filterChainDefinitionMap.put("/findPassword","anon");
+        filterChainDefinitionMap.put("/admin","anon");
+        filterChainDefinitionMap.put("/users/password","anon");
         filterChainDefinitionMap.put("/**", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         shiroFilterFactoryBean.setLoginUrl("/login");       // 登录的路径
         shiroFilterFactoryBean.setSuccessUrl("/"); // 登录成功后跳转的路径
-        shiroFilterFactoryBean.setUnauthorizedUrl("/error");  // 验证失败后跳转的路径
+       /* shiroFilterFactoryBean.setUnauthorizedUrl("/error");  */// 验证失败后跳转的路径
         return shiroFilterFactoryBean;
     }
     /**

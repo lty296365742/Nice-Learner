@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | Login 2</title>
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
+    <!-- Sweet Alert -->
+    <link th:href="@{/css/plugins/sweetalert/sweetalert.css}" rel="stylesheet">
+
+    <link th:href="@{/css/animate.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+<div class="loginColumns animated fadeInDown">
+    <div class="row">
+
+        <div class="col-md-6">
+            <h2 class="font-bold">Welcome to IN+</h2>
+
+            <p>
+                Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
+            </p>
+
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+            </p>
+
+            <p>
+                When an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+
+            <p>
+                <small>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</small>
+            </p>
+
+        </div>
+        <div class="col-md-6">
+            <div class="ibox-content">
+                <form class="m-t" role="form">
+                    <div class="form-group">
+                        <input type="text" id="name"  value="1234560"  class="form-control" placeholder="Username" required="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" value="12345678" class="form-control" placeholder="Password" required="">
+                    </div>
+                    <div class="form-group">
+                        <div id="your-dom-id" class="nc-container"></div>
+                        <!--No-Captcha渲染的位置，其中 class 中必须包含 nc-container-->
+                    </div>
+                    <button type="button" class="btn btn-primary block full-width m-b" id="loginBtn">Login</button>
+
+                    <a href="#">
+                        <small>Forgot password?</small>
+                    </a>
+
+                    <p class="text-muted text-center">
+                        <small>Do not have an account?</small>
+                    </p>
+                    <a class="btn btn-sm btn-white btn-block" href="register.html">Create an account</a>
+                </form>
+                <p class="m-t">
+                    <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small>
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-6">
+            Copyright Example Company
+        </div>
+        <div class="col-md-6 text-right">
+            <small>© 2014-2015</small>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/jquery-2.1.1.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<!-- 国内使用 -->
+<script type="text/javascript" charset="utf-8" src="//g.alicdn.com/sd/ncpc/nc.js?t=2015052012"></script>
+<!-- Sweet alert -->
+<script th:src="@{/js/plugins/sweetalert/sweetalert.min.js}"></script>
+<script>
+    var csessionid;
+    var sig;
+    var scene="nc_login";
+    var nc_token = ["FFFF0N00000000005BE9", (new Date()).getTime(), Math.random()].join(':');
+    var NC_Opt =
+        {
+            renderTo: "#your-dom-id",
+            appkey: "FFFF0N00000000005BE9",
+            scene: "nc_login",
+            token: nc_token,
+            customWidth: 300,
+            trans:{"key1":"code0"},
+            elementID: ["usernameID"],
+            is_Opt: 0,
+            language: "cn",
+            isEnabled: true,
+            timeout: 3000,
+            times:5,
+            apimap: {
+                // 'analyze': '//a.com/nocaptcha/analyze.jsonp',
+                // 'get_captcha': '//b.com/get_captcha/ver3',
+                // 'get_captcha': '//pin3.aliyun.com/get_captcha/ver3'
+                // 'get_img': '//c.com/get_img',
+                // 'checkcode': '//d.com/captcha/checkcode.jsonp',
+                // 'umid_Url': '//e.com/security/umscript/3.2.1/um.js',
+                // 'uab_Url': '//aeu.alicdn.com/js/uac/909.js',
+                // 'umid_serUrl': 'https://g.com/service/um.json'
+            },
+            callback: function (data) {
+                window.console && console.log(nc_token);
+
+                window.console && console.log(data.csessionid);
+                csessionid=data.csessionid;
+                window.console && console.log(data.sig);
+                sig=data.sig;
+
+            }
+        }
+    var nc = new noCaptcha(NC_Opt);
+    nc.upLang('cn', {
+        _startTEXT: "请按住滑块，拖动到最右边",
+        _yesTEXT: "验证通过",
+        _error300: "哎呀，出错了，点击<a href=\"javascript:__nc.reset()\">刷新</a>再来一次",
+        _errorNetwork: "网络不给力，请<a href=\"javascript:__nc.reset()\">点击刷新</a>",
+    })
+    $(function(){
+        $("#loginBtn").click(function(){
+            doLogin();
+        });
+    });
+    
+    function doLogin() {
+        $.ajax({
+            type:"POST",
+            url:"/learner.me/api/users/",
+            dataType:"text",
+            data:{name:$("#name").val(),
+                password:$("#password").val(),
+                sessionId:csessionid,
+                sig:sig,
+                Token:nc_token,
+                scene:scene
+                },//schoolList是你要提交是json字符串
+            success:function (r) {
+                var data=JSON.parse(r);
+                console.log(data.msg);
+                if (data.code == 0) {
+                    window.location.href = "http://localhost:1000/learner.me/";
+                } else {
+                    swal({
+                        title: "登陆失败",
+                        text: "是否尝试找回密码",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "找回密码",
+                        closeOnConfirm: false
+                    }, function () {
+                        window.location.href = "http://localhost:1000/learner.me/admin/password";
+                    });
+                }
+            }
+        });
+
+       /* $.post("/learner.me/api/users/", $(".form").serialize(),function(data){
+
+        });*/
+    }
+</script>
+</body>
+
+</html>

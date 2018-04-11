@@ -50,4 +50,14 @@ public class UserServiceImpl implements IUserService {
     public void delete(Integer id) {
         userMapper.delete(id);
     }
+
+    @Override
+    public User findByAccount(String account) {
+        return userMapper.findByAccount(account);
+    }
+
+    @Override
+    public void update(User newUser) {
+        userMapper.update(newUser);
+    }
 }

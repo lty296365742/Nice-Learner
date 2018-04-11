@@ -57,7 +57,7 @@ public class ReplyController {
         return  ResultUtil.success();
     }
 
-    @GetMapping("/{id}")
+    @DeleteMapping("/{id}")
     @ApiOperation(value = "删除回复信息",httpMethod = "DELETE",response = Reply.class)
     public Object deleteReply(@PathVariable("id")Integer id){
         replyService.delete(id);

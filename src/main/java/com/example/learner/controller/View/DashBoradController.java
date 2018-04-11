@@ -25,14 +25,26 @@ public class DashBoradController {
     public String dashboard() {
         Subject subject = SecurityUtils.getSubject();
         try {
-            subject.checkRole("assessor");
-            logger.info(String.valueOf(subject.getSession()));
+            subject.checkRole("admin");
+            return "dashboard";
         } catch (UnauthorizedException exception) {
             logger.info("没有足够的权限");
+            return "/admin/login";
         }
-        return "dashboard";
+
     }
 
+    @GetMapping("/admin")
+    @ApiOperation(value = "跳转管理员或者审核员界面",httpMethod = "GET")
+    public String toAdmin(){
+        return "/admin/login";
+    }
+
+    @GetMapping("/admin/password")
+    @ApiOperation(value = "管理员找回密码界面",httpMethod = "GET")
+    public String toPassword(){
+        return "/admin/forgot_password";
+    }
     @GetMapping("/login")
     @ApiOperation(value = "用户登陆页面",httpMethod = "GET")
     public String toLogin(){

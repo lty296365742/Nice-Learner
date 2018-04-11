@@ -3,6 +3,8 @@ package com.example.learner.mapper;
 import com.example.learner.bean.Role;
 import com.example.learner.bean.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -52,4 +54,19 @@ public interface UserMapper {
      * @param id
      */
     void delete(Integer id);
+
+    /**
+     * 通过用户手机号或者邮箱查找用户
+     * @param account
+     * @return
+     */
+    @Select("select * from tb_user where email = #{account} or phone = #{account} or name = #{account}")
+    User findByAccount(String account);
+
+    /**
+     * 更新用户信息
+     * @param newUser
+     */
+    @Update("update tb_user set name= #{name} ,email = #{email},salt = #{salt},password = #{password},createTime= #{createTime},phone = #{phone},logo = #{logo},status = #{status},organization = #{organization} where id = #{id}")
+    void update(User newUser);
 }

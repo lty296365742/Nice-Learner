@@ -39,8 +39,8 @@ public class MyShiroRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         log.info("^^^^^^^^^^^^^^^^^^^^  配置当前用户权限");
-        String username = (String) principals.getPrimaryPrincipal();
-        User user = userService.findByName(username);
+        String name = (String) principals.getPrimaryPrincipal();
+        User user = userService.findByName(name);
         if(null == user){
             return null;
         }

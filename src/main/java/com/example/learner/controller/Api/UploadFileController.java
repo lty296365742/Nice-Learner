@@ -16,12 +16,12 @@ import java.io.File;
 /**
  * Created by LiQian_Nice on 2018/3/29
  */
-@Controller
-@RequestMapping("/uploadfile")
+/*@Controller
+@RequestMapping("/uploadfile")*/
 public class UploadFileController {
     private Logger logger= LoggerFactory.getLogger(UploadFileController.class);
 
-    @RequestMapping("/upload")
+   /* @RequestMapping("/upload")
     public String upload() {
         return "/upload";
     }
@@ -67,5 +67,5 @@ public class UploadFileController {
         }
 
         return result;
-    }
+    }*/
 }

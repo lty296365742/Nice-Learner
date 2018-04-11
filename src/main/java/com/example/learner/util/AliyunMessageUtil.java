@@ -26,7 +26,7 @@ public class AliyunMessageUtil {
     // 此处需要替换成开发者自己的AK(在阿里云访问控制台寻找)
     private static final String accessKeyId = "LTAICbYuU40V1MzM";
     private static final String accessKeySecret = "I7aqjulzQkI0NSGdfZcApiT4dUHf8x";
-
+    public static String code=null;
     public static SendSmsResponse sendSms(Map<String, String> paramMap) throws com.aliyuncs.exceptions.ClientException {
 
         //可自助调整超时时间
@@ -60,9 +60,9 @@ public class AliyunMessageUtil {
         return sendSmsResponse;
     }
 
-    public static void sendMsg() throws ClientException, com.aliyuncs.exceptions.ClientException {
-        String phoneNumber = "17828897457";
-        String code = createRandomNum(6);
+    public static void sendMsg(String phone) throws ClientException, com.aliyuncs.exceptions.ClientException {
+        String phoneNumber = phone;
+        code = createRandomNum(6);
         String jsonContent = "{\"code\":\"" + code + "\"}";
 
         Map<String, String> paramMap = new HashMap<>();
@@ -93,7 +93,7 @@ public class AliyunMessageUtil {
         return randomNumStr;
     }
 
-    public static void main(String[] args) throws com.aliyuncs.exceptions.ClientException {
+  /*  public static void main(String[] args) throws com.aliyuncs.exceptions.ClientException {
         sendMsg();
-    }
+    }*/
 }

@@ -24,7 +24,7 @@ import javax.validation.Valid;
  */
 @Controller
 @Api(value="章节评论接口",tags={"章节评论Api"})//接口简要标注，对中文的支持不太好
-@RequestMapping(value = "/api/comments")//接口基本路径
+@RequestMapping(value = "/api/user/comments")//接口基本路径
 public class CommentController {
 
     @Resource
