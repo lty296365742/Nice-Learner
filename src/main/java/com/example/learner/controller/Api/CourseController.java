@@ -1,6 +1,7 @@
 package com.example.learner.controller.Api;
 
 import com.example.learner.bean.Course;
+import com.example.learner.service.ICourseService;
 import com.example.learner.service.impl.CourseServiceImpl;
 import com.example.learner.util.LqNiceUtil;
 import com.example.learner.util.ResultUtil;
@@ -24,8 +25,8 @@ import javax.validation.Valid;
 public class CourseController {
     private Logger logger= LoggerFactory.getLogger(CourseController.class);
 
-    @Resource
-    private CourseServiceImpl courseService;
+    @Resource(name = "courseServiceImpl")
+    private ICourseService courseService;
 
     @GetMapping("/")
     @ResponseBody

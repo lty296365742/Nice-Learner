@@ -3,6 +3,7 @@ package com.example.learner.controller.Api;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
+import com.example.learner.service.IAspectService;
 import com.example.learner.util.LqNiceUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,8 +27,8 @@ public class AspectController {
 
 	private static Logger logger= LoggerFactory.getLogger(AspectController.class);
 
-    @Resource
-    private AspectServiceImpl aspectService;
+    @Resource(name = "aspectServiceImpl")
+    private IAspectService aspectService;
     
     @GetMapping("/")
     @ResponseBody

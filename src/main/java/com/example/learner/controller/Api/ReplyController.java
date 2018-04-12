@@ -2,6 +2,7 @@ package com.example.learner.controller.Api;
 
 
 import com.example.learner.bean.Reply;
+import com.example.learner.service.IReplyService;
 import com.example.learner.util.ResultUtil;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -24,8 +25,8 @@ import javax.validation.Valid;
 public class ReplyController {
     private static Logger logger=LoggerFactory.getLogger(ReplyController.class);
 
-    @Resource
-    private ReplyServiceImpl replyService;
+    @Resource(name = "replyServiceImpl")
+    private IReplyService replyService;
 
     @GetMapping("/")
     @ResponseBody

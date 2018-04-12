@@ -2,6 +2,7 @@ package com.example.learner.controller.Api;
 
 import javax.annotation.Resource;
 
+import com.example.learner.service.IChapterService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -18,8 +19,8 @@ public class ChapterController {
 
 	private static Logger logger= LoggerFactory.getLogger(ChapterController.class);
 	
-	@Resource
-    private ChapterServiceImpl chapterService;
+	@Resource(name = "chapterServiceImpl")
+    private IChapterService chapterService;
 	
 	
 }

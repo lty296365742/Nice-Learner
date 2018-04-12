@@ -3,6 +3,7 @@ package com.example.learner.controller.Api;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
+import com.example.learner.service.ICategoryService;
 import com.example.learner.util.LqNiceUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,8 +25,8 @@ public class CategoryController {
 
 	private static Logger logger= LoggerFactory.getLogger(CategoryController.class);
 	
-	@Resource
-    private CategoryServiceImpl categoryService;
+	@Resource(name = "categoryServiceImpl")
+    private ICategoryService categoryService;
 	
 	@GetMapping("/")
     @ResponseBody

@@ -1,6 +1,7 @@
 package com.example.learner.controller.Api;
 
 import com.example.learner.bean.Role;
+import com.example.learner.service.IRoleService;
 import com.example.learner.service.impl.RoleServiceImpl;
 import com.example.learner.util.LqNiceUtil;
 import com.example.learner.util.ResultUtil;
@@ -26,8 +27,8 @@ public class RoleController {
 
     private Logger logger= LoggerFactory.getLogger(RoleController.class);
 
-    @Resource
-    private RoleServiceImpl roleService;
+    @Resource(name = "roleServiceImpl")
+    private IRoleService roleService;
 
 
     @GetMapping("/")

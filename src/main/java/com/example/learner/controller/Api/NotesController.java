@@ -1,6 +1,7 @@
 package com.example.learner.controller.Api;
 
 import com.example.learner.bean.Notes;
+import com.example.learner.service.INotesService;
 import com.example.learner.service.impl.NotesServiceImpl;
 import com.example.learner.util.LqNiceUtil;
 import com.example.learner.util.ResultUtil;
@@ -25,8 +26,8 @@ public class NotesController {
 
     private Logger logger= LoggerFactory.getLogger(NotesController.class);
 
-    @Resource
-    private NotesServiceImpl notesService;
+    @Resource(name = "notesServiceImpl")
+    private INotesService notesService;
 
     @GetMapping("/")
     @ResponseBody

@@ -32,6 +32,10 @@
             <th>http://shiro.apache.org/</th>
         </tr>
         <tr>
+            <th>Spring session</th>
+            <th>分布式Session管理</th>
+            <th>	http://projects.spring.io/spring-session/</th>
+        <tr>
             <th>Redis</th>
             <th>分布式缓存数据库</th>
             <th>https://redis.io/</th>
@@ -91,12 +95,12 @@
 > 解决办法 数据库语句后面加入 ON DUPLICATE KEY UPDATE categoryId = VALUES(categoryId),同时MySQL中设置categoryId索引类型为Unique。约束唯一标识数据库表中的每一条记录，即在单表中不能用每条记录是唯一的（例如身份证就是唯一的），Unique(要求列唯一)和Primary Key(primary key = unique + not null 列唯一)约束均为列或列集合中提供了唯一性的保证，Primary Key是拥有自动定义的Unique约束，但是每个表中可以有多个Unique约束，但是只能有一个Primary Key约束。 
 * SpringMVC多参数传参-未解决
 > form表单提交时，提交按钮类型设置为submit，提交后会立马刷新页面。
->window下安装redis报错：creating server tcp listening socket 127.0.0.1:6379: bind No error
-* 解决方案如下按顺序输入如下命令就可以连接成功
-*  redis-cli.exe
-*  shutdown
-*  exit
-*  redis-server.exe redis.windows.conf
+* window下安装redis报错：creating server tcp listening socket 127.0.0.1:6379: bind No error
+> 解决方案如下按顺序输入如下命令就可以连接成功
+>  1.redis-cli.exe
+>  2.shutdown
+>  3.exit
+>  4.redis-server.exe redis.windows.conf
 #### 拓展
 
 

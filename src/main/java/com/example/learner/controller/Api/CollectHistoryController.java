@@ -3,6 +3,7 @@ package com.example.learner.controller.Api;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
+import com.example.learner.service.ICollectHistoryService;
 import com.example.learner.util.LqNiceUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,8 +25,8 @@ public class CollectHistoryController {
 
 	private static Logger logger= LoggerFactory.getLogger(CollectHistoryController.class);
 
-    @Resource
-    private CollectHistoryServiceImpl collectHistoryService;
+    @Resource(name = "collectHistoryServiceImpl")
+    private ICollectHistoryService collectHistoryService;
     
     @GetMapping("/")
     @ResponseBody

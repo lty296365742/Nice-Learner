@@ -1,6 +1,7 @@
 package com.example.learner.controller.Api;
 
 import com.example.learner.bean.Degree;
+import com.example.learner.service.IDegreeService;
 import com.example.learner.service.impl.DegreeServiceImpl;
 import com.example.learner.util.LqNiceUtil;
 import com.example.learner.util.ResultUtil;
@@ -26,8 +27,8 @@ public class DegreeController {
 
     private Logger logger= LoggerFactory.getLogger(DegreeController.class);
 
-    @Resource
-    private DegreeServiceImpl degreeService;
+    @Resource(name = "degreeServiceImpl")
+    private IDegreeService degreeService;
 
 
 

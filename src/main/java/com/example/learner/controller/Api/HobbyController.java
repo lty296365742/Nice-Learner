@@ -2,6 +2,7 @@ package com.example.learner.controller.Api;
 
 import com.example.learner.bean.Category;
 import com.example.learner.mapper.HobbyMapper;
+import com.example.learner.service.IHobbyService;
 import com.example.learner.service.impl.HobbyServiceImpl;
 import com.example.learner.util.ResultUtil;
 import io.swagger.annotations.Api;
@@ -27,8 +28,8 @@ public class HobbyController {
 
     private Logger logger= LoggerFactory.getLogger(HobbyController.class);
 
-    @Resource
-    private HobbyServiceImpl hobbyService;
+    @Resource(name = "hobbyServiceImpl")
+    private IHobbyService hobbyService;
 
 
     @GetMapping("/categorys/{userId}")

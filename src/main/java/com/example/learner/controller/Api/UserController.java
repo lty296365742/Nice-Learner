@@ -8,6 +8,7 @@ import com.aliyuncs.afs.model.v20180112.AuthenticateSigResponse;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.example.learner.bean.User;
+import com.example.learner.service.IUserService;
 import com.example.learner.service.impl.RedisService;
 import com.example.learner.service.impl.UserServiceImpl;
 import com.example.learner.util.AliyunMessageUtil;
@@ -39,8 +40,8 @@ import javax.servlet.http.HttpServletResponse;
 public class UserController {
     private static Logger logger= LoggerFactory.getLogger(UserController.class);
 
-    @Resource
-    private UserServiceImpl userService;
+    @Resource(name = "userServiceImpl")
+    private IUserService userService;
 
     @Resource
     private RedisService redisService ;

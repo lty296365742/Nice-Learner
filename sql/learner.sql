@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-04-03 16:56:28
+Date: 2018-04-12 12:46:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,7 +23,7 @@ CREATE TABLE `tb_aspect` (
   `id` int(11) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `aspect` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of tb_aspect
@@ -36,6 +36,8 @@ INSERT INTO `tb_aspect` VALUES ('00000000005', '人工智能');
 INSERT INTO `tb_aspect` VALUES ('00000000006', '云计算&大数据');
 INSERT INTO `tb_aspect` VALUES ('00000000007', '运维&测试');
 INSERT INTO `tb_aspect` VALUES ('00000000008', 'UI设计');
+INSERT INTO `tb_aspect` VALUES ('00000000009', '测试');
+INSERT INTO `tb_aspect` VALUES ('00000000011', '测试爱的');
 
 -- ----------------------------
 -- Table structure for tb_category
@@ -108,16 +110,11 @@ CREATE TABLE `tb_chapter` (
   UNIQUE KEY `title` (`title`) USING BTREE,
   KEY `courseId` (`courseId`),
   CONSTRAINT `courseId` FOREIGN KEY (`courseId`) REFERENCES `tb_course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of tb_chapter
 -- ----------------------------
-INSERT INTO `tb_chapter` VALUES ('00000000001', '测试0', '测试0', '00000000003');
-INSERT INTO `tb_chapter` VALUES ('00000000002', '测试1', '测试1', '00000000003');
-INSERT INTO `tb_chapter` VALUES ('00000000003', '测试2', '测试2', '00000000003');
-INSERT INTO `tb_chapter` VALUES ('00000000004', '测试3', '测试3', '00000000003');
-INSERT INTO `tb_chapter` VALUES ('00000000005', '测试4', '测试4', '00000000003');
 
 -- ----------------------------
 -- Table structure for tb_collect_history
@@ -135,14 +132,11 @@ CREATE TABLE `tb_collect_history` (
   KEY `userId_his` (`userId`),
   CONSTRAINT `courseId_his` FOREIGN KEY (`courseId`) REFERENCES `tb_course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `userId_his` FOREIGN KEY (`userId`) REFERENCES `tb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of tb_collect_history
 -- ----------------------------
-INSERT INTO `tb_collect_history` VALUES ('00000000001', '00000000001', '2018-03-01 20:35:47', '00000000004', '', '');
-INSERT INTO `tb_collect_history` VALUES ('00000000002', '00000000002', '2018-03-01 20:35:47', '00000000004', '\0', '');
-INSERT INTO `tb_collect_history` VALUES ('00000000003', '00000000003', '2018-04-03 20:36:18', '00000000006', '', '');
 
 -- ----------------------------
 -- Table structure for tb_comment
@@ -159,14 +153,11 @@ CREATE TABLE `tb_comment` (
   KEY `userId_com` (`userId`),
   CONSTRAINT `chapterId` FOREIGN KEY (`chapterId`) REFERENCES `tb_chapter` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `userId_com` FOREIGN KEY (`userId`) REFERENCES `tb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of tb_comment
 -- ----------------------------
-INSERT INTO `tb_comment` VALUES ('00000000001', '00000000001', '2018-04-25 21:06:14', '00000000004', '测试2');
-INSERT INTO `tb_comment` VALUES ('00000000002', '00000000002', '2018-04-25 21:06:14', '00000000006', '测试22');
-INSERT INTO `tb_comment` VALUES ('00000000003', '00000000002', '2018-04-01 21:11:05', '00000000006', '测试33');
 
 -- ----------------------------
 -- Table structure for tb_course
@@ -189,14 +180,11 @@ CREATE TABLE `tb_course` (
   CONSTRAINT `authorId` FOREIGN KEY (`authorId`) REFERENCES `tb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `categoryId` FOREIGN KEY (`categoryId`) REFERENCES `tb_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `degreeId` FOREIGN KEY (`degreeId`) REFERENCES `tb_degree` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of tb_course
 -- ----------------------------
-INSERT INTO `tb_course` VALUES ('00000000001', '测试', '00000000002', '00000000005', '2018-04-01 12:07:14', '00000000008', '测试', '12', '');
-INSERT INTO `tb_course` VALUES ('00000000002', '测试1', '00000000002', '00000000004', '2018-04-05 12:31:40', '00000000007', '测试2', '13', '');
-INSERT INTO `tb_course` VALUES ('00000000003', '测试', '00000000002', '00000000003', '2018-03-31 21:52:07', '00000000006', '22', '22', '');
 
 -- ----------------------------
 -- Table structure for tb_degree
@@ -315,26 +303,11 @@ CREATE TABLE `tb_user` (
   PRIMARY KEY (`id`),
   KEY `roleId` (`roleId`),
   CONSTRAINT `roleId` FOREIGN KEY (`roleId`) REFERENCES `tb_role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of tb_user
 -- ----------------------------
-INSERT INTO `tb_user` VALUES ('00000000004', '123450', '1234560', '51103942@qq.com', '22d6e58b-b2a8-4a4a-a3d9-5922576dc0de', 'cf57fea94b800fcf5e937bceb9b97717', '2018-03-31 21:52:07', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000005', '123451', '1234561', '51103942@qq.com', '630905f8-1ab6-472e-8238-88a7b8050fa9', '0353cb6322124c87b95233fc456a23d3', '2018-03-31 21:52:07', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000006', '123452', '1234562', '51103942@qq.com', '3c48667d-25dc-4c40-a8f7-0696630322d7', 'c90ad90c3d12d042ebda812e2b5cbb79', '2018-03-31 21:52:07', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000007', '123453', '1234563', '51103942@qq.com', 'be6c1917-ac97-42bb-b49a-3d5aab8a1570', 'bdb5d4054d90debdf1cde7c7c539a205', '2018-03-31 21:52:07', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000008', '123454', '1234564', '51103942@qq.com', '8ce09a58-b4ea-419d-8a2e-8c05dcd4a740', '2796dfff0bc4a7711bbf9382c8ed67a2', '2018-03-31 21:52:07', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000009', '123455', '1234565', '51103942@qq.com', '0362030e-63b6-4325-ae88-f93b01bc92ec', 'f781d7c1bea65b3d7568169354a663e4', '2018-03-31 21:52:07', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000010', '123456', '1234566', '51103942@qq.com', '18b453d6-51cd-4f4c-a991-db452787b0b1', 'ed48247d51180442548ee8f934089587', '2018-03-31 21:52:07', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000011', '123457', '1234567', '51103942@qq.com', '202eaa2a-c364-48c8-b7b2-b09e206cf543', '093fb47714ef8eedbe1d7d12b8a209ee', '2018-03-31 21:52:07', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000012', '123458', '1234568', '51103942@qq.com', '7c4d360c-cd64-46ae-8bbc-71b9f8652036', 'b837d12dbf3ae5aa6512f399911d7be2', '2018-03-31 21:52:07', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000013', '123459', '1234569', '51103942@qq.com', 'ec930174-a21a-45cd-bc4a-e277f7db4433', '8f0a95be3ae898a908b0d014a37cde77', '2018-03-31 21:52:07', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000014', '1234510', '12345610', '51103942@qq.com', '15679f79-7d00-42c6-b017-cdef1fec22cc', '54f366dda881bead7537aab8c06388f1', '2018-03-31 21:52:07', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000015', '1234511', '12345611', '51103942@qq.com', '55dac570-8a71-408b-ac57-8c595a7f706e', 'bd8f0080051e727010345b9753b85d7b', '2018-03-31 21:52:07', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000016', '1234512', '12345612', '51103942@qq.com', '1ed0b1a4-2855-4052-8ce8-6c8c04793f46', '23b230627aba30182e3598592776345f', '2018-03-31 21:52:07', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000017', '1234513', '12345613', '51103942@qq.com', '32396c1e-dc46-4ec0-93e6-d1205f859c65', '050233e1582e96609ab9c4dcbbeefd55', '2018-03-31 21:52:08', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000018', '1234514', '12345614', '51103942@qq.com', '40015ad4-b5a4-4a44-87c4-6af628879d59', 'bf0f819a7db91c64bc47920549a7e342', '2018-03-31 21:52:08', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000019', '1234515', '12345615', '51103942@qq.com', 'd1d3235f-4c3a-405f-ad25-e5d2c9676c0c', 'ab6b8ae124e74b171d2cd74764816746', '2018-03-31 21:52:08', null, null, '\0', null, '00000000002');
-INSERT INTO `tb_user` VALUES ('00000000020', '1234516', '12345616', '51103942@qq.com', '7ef52df8-2b0c-4ffb-8a27-2297a1810fa6', '9e9f7672562589c6baf3265c8b9db0ab', '2018-03-31 21:52:08', null, null, '\0', null, '00000000002');
+INSERT INTO `tb_user` VALUES ('00000000004', '123450', '1234560', '511039423@qq.com', '22d6e58b-b2a8-4a4a-a3d9-5922576dc0de', 'cf57fea94b800fcf5e937bceb9b97717', '2018-04-11 09:45:52', '123456', null, '\0', null, '00000000001');
+INSERT INTO `tb_user` VALUES ('00000000005', '123451', '1234561', '51103942@qq.com', '60d28b67-f0ad-4820-bfd3-0685d04aee49', '290abc8916386bc4589acf66819f41bb', '2018-04-11 22:41:29', null, null, '\0', null, '00000000002');
 SET FOREIGN_KEY_CHECKS=1;

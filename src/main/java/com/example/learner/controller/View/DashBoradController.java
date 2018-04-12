@@ -33,21 +33,30 @@ public class DashBoradController {
     @GetMapping("/")
     @ApiOperation(value = "跳转到主页",httpMethod = "GET")
     public String dashboard() {
-        HttpSession session=req.getSession();
-        User user= (User) session.getAttribute("user");
-        logger.info("获取到的用户session---"+user.getName());
+      //  HttpSession session=req.getSession();
+       // User user= (User) session.getAttribute("user");
+//        logger.info("获取到的用户session---"+user.getName());
         Subject subject = SecurityUtils.getSubject();
         try {
-            subject.checkRole("admin");
-            return "dashboard";
+            if(subject.hasRole("admin")){
+                //subject.checkRole("admin");
+                return "/admin/dashboard";
+            }else if (subject.hasRole("assessor")){
+
+            }else if (subject.hasRole("teacher")){
+
+            }else if (subject.hasRole("student")){
+                //subject.checkRole("student");
+                return "/login";
+            }
         } catch (UnauthorizedException exception) {
             logger.info("没有足够的权限");
             return "/admin/login";
         }
-
+        return "/admin/login";
     }
 
-    @GetMapping("/admin")
+    @GetMapping("/admin/login")
     @ApiOperation(value = "跳转管理员或者审核员界面",httpMethod = "GET")
     public String toAdmin(){
         return "/admin/login";
@@ -77,11 +86,13 @@ public class DashBoradController {
         return "forgot-password";
     }
 
-    @GetMapping("/logout")
+    @GetMapping("/admin/logout")
     @ApiOperation(value = "退出页面",httpMethod = "GET")
     public String logout(){
+        HttpSession session=req.getSession();
+        session.removeAttribute("user");
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
-        return "login";
+        return "/admin/login";
     }
 }

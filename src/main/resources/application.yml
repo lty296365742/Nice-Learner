@@ -1,5 +1,5 @@
 server:
-  port: 1001 #配置端口名
+  port: 1000 #配置端口名
   servlet:
     context-path: /learner.me #访问路径为http://localhost:1000/learner.me/
 spring:

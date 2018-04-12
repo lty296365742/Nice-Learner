@@ -1,6 +1,7 @@
 package com.example.learner.controller.Api;
 
 import com.example.learner.bean.Comment;
+import com.example.learner.service.ICommentService;
 import com.example.learner.service.impl.CommentServiceImpl;
 import com.example.learner.util.LqNiceUtil;
 import com.example.learner.util.ResultUtil;
@@ -27,8 +28,8 @@ import javax.validation.Valid;
 @RequestMapping(value = "/api/user/comments")//接口基本路径
 public class CommentController {
 
-    @Resource
-    private CommentServiceImpl commentService;
+    @Resource(name = "commentServiceImpl")
+    private ICommentService commentService;
 
     @GetMapping("/")
     @ResponseBody
