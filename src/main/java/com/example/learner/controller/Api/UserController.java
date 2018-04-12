@@ -26,6 +26,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 
 /**
@@ -55,7 +57,7 @@ public class UserController {
     @PostMapping("/")
     @ResponseBody
     @ApiOperation(value = "通过用户姓名和密码查询账号是否存在",httpMethod = "POST")
-    public Object doLogin(@ModelAttribute("user") User user,String sessionId,String sig,String Token,String scene) throws Exception {
+    public Object doLogin(@ModelAttribute("user") User user, String sessionId, String sig, String Token, String scene, HttpServletRequest req) throws Exception {
         IAcsClient client = LqNiceUtil.setUp();
         init(sessionId,sig,Token,scene);
         try {
@@ -67,7 +69,7 @@ public class UserController {
                 Subject subject = SecurityUtils.getSubject();
                 try {
                     subject.login(token);	// 执行登录
-                    //redisService.set(user.getName(),user.getPassword());
+                    req.getSession().setAttribute("user",user);
                 } catch (Exception e) {
                     e.printStackTrace();
                     return ResultUtil.error(1,"登陆失败");

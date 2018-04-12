@@ -1,5 +1,5 @@
 server:
-  port: 1000 #配置端口名
+  port: 1001 #配置端口名
   servlet:
     context-path: /learner.me #访问路径为http://localhost:1000/learner.me/
 spring:
@@ -17,6 +17,8 @@ spring:
       maximum-pool-size: 60
       minimum-idle: 10
     ## Mybatis 配置
+  session:
+    store-type: redis
   resources:
     #静态资源
     static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/

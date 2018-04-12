@@ -66,6 +66,8 @@ public class ShiroConfigure {
         filterChainDefinitionMap.put("/findPassword","anon");
         filterChainDefinitionMap.put("/admin","anon");
         filterChainDefinitionMap.put("/users/password","anon");
+        //开放测试url
+        filterChainDefinitionMap.put("/test/session","anon");
         filterChainDefinitionMap.put("/**", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         shiroFilterFactoryBean.setLoginUrl("/login");       // 登录的路径

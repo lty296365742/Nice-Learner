@@ -1,6 +1,7 @@
 package com.example.learner.controller.View;
 
 
+import com.example.learner.bean.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
@@ -10,6 +11,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * Created by LiQian_Nice on 2018/3/24
@@ -19,10 +28,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class DashBoradController {
 
     private Logger logger= LoggerFactory.getLogger(DashBoradController.class);
-
+    @Resource
+    private HttpServletRequest req;
     @GetMapping("/")
     @ApiOperation(value = "跳转到主页",httpMethod = "GET")
     public String dashboard() {
+        HttpSession session=req.getSession();
+        User user= (User) session.getAttribute("user");
+        logger.info("获取到的用户session---"+user.getName());
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.checkRole("admin");
