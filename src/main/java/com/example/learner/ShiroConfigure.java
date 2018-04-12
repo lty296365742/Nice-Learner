@@ -53,8 +53,9 @@ public class ShiroConfigure {
         filterChainDefinitionMap.put("/images/**", "anon"); // 静态资源匿名访问
         filterChainDefinitionMap.put("/webuploader-0.1.5/**", "anon"); // 静态资源匿名访问
         filterChainDefinitionMap.put("/semantic-ui/**", "anon"); // 静态资源匿名访问
-        filterChainDefinitionMap.put("/logout", "logout");  // 用户退出，只需配置logout即可实现该功能
-        filterChainDefinitionMap.put("/api/users/", "anon");  // 用户登陆
+        filterChainDefinitionMap.put("/signout", "logout");  // 用户退出，只需配置logout即可实现该功能
+        //开发所有api接口
+        filterChainDefinitionMap.put("/api/**", "anon");  // 用户登陆
         filterChainDefinitionMap.put("/", "anon");  // 不需要登陆的首页
         //开放swagger资源 start
         filterChainDefinitionMap.put("/v2/api-docs", "anon");
@@ -65,7 +66,11 @@ public class ShiroConfigure {
         filterChainDefinitionMap.put("/register","anon");
         filterChainDefinitionMap.put("/forgotPassword","anon");
         filterChainDefinitionMap.put("/findPassword","anon");
-        filterChainDefinitionMap.put("/admin/login","anon");
+        //开发所有管理员信息资源
+        filterChainDefinitionMap.put("/admin/**","anon");
+        //开放测试url信息资源
+        filterChainDefinitionMap.put("/test/**","anon");
+
         filterChainDefinitionMap.put("/users/password","anon");
         filterChainDefinitionMap.put("/logout","anon");
         //开放测试url

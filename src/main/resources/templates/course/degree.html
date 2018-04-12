@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | E-commerce</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+
+
+
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+
+    <link href="../css/plugins/iCheck/custom.css" rel="stylesheet">
+
+    <link href="../css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="http://vjs.zencdn.net/6.6.3/video-js.css" rel="stylesheet">
+
+    <!-- If you'd like to support IE8 -->
+    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+
+
+</head>
+
+<body >
+
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span>
+                                <img alt="image" class="img-circle" src="../img/profile_small.jpg" />
+                            </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                    <span id="loginstatus" class="block m-t-xs">
+                                        <strong class="font-bold">用户名</strong>
+                                    </span>
+                                    <span class="text-muted text-xs block">Super Admin
+                                        <b class="caret"></b>
+                                    </span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li>
+                                    <a href="Admin_Alladmin.html">其他Super Admin</a>
+                                </li>
+                                <li>
+                                    <a href="Admin_Mynote.html">操作日志Person</a>
+                                </li>
+                                <li>
+                                    <a href="Admin_Information.html">个人资料</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="login.html">注销</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- 左侧菜单-->
+                    <li>
+                        <a href="Admin_Index.html">
+                            <i class="fa fa-th-large"></i>
+                            <span class="nav-label">统计数据</span>
+                            <span class="label label-primary pull-right">NEW</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Admin_Shenheyuan_New.html">
+                            <i class="fa fa-user"></i>
+                            <span class="nav-label">新审核员</span>
+                            <span class="label label-warning pull-right">12</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Admin_Shenheyuan_Old.html">
+                            <i class="fa fa-user-md"></i>
+                            <span class="nav-label">审核员</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Admin_Student_Mg.html">
+                            <i class="glyphicon glyphicon-magnet"></i>
+                            <span class="nav-label">学生管理</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="Admin_Teacher_Mg.html">
+                            <i class="glyphicon glyphicon-subtitles"></i>
+                            <span class="nav-label">教师管理</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                            <a href="#">
+                                <i class="fa fa-th-large"></i>
+                                <span class="nav-label">
+                                    课程</span>
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level collapse">
+                                <li >
+                                    <a href="#">方向与分类</a>
+                                </li>
+                                
+                                <li class="active">
+                                    <a href="#">难度</a>
+                                </li>
+                                <li >
+                                    <a href="#">课程</a>
+                                </li>
+                            </ul>
+                        </li>
+                    <li class="special_link">
+                        <a href="Admin_Systemnote.html">
+                            <i class="fa fa-database"></i>
+                            <span class="nav-label">SuperAdmin日志</span>
+                        </a>
+                    </li>
+                   
+                   
+
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <form role="search" class="navbar-form-custom" action="search_results.html">
+                            <div class="form-group">
+                                <input type="text" placeholder="输入搜索内容..." class="form-control" name="top-search" id="top-search">
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message">SuperAdmin后台管理</span>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                <i class="fa fa-envelope"></i>
+                                <span class="label label-warning">16</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="login.html">
+                                <i class="fa fa-sign-out"></i> 注销
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+            </div>
+
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>Degree list</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a>Course</a>
+                        </li>
+                        <li class="active">
+                            <strong>degree list</strong>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+
+            <div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+
+
+
+                <div class="row">
+                        <div class="col-lg-12">
+                                <div class="ibox">
+                                    <div class="ibox-content">
+        
+                                        <table class=" table table-stripped toggle-arrow-tiny" data-page-size="15">
+                                            <thead>
+                                                <tr colspan="6">
+                                                    <div class="row">
+                                                        <div class="col-sm-1">
+                                                           <div class="form-group">
+                                                               
+                                                                <button type="button" class="btn btn-outline btn-primary">
+                                                                        添加
+                                                                    </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-1">
+                                                                <div class="form-group">
+                                                               
+                                                                        <button type="button" class="btn btn-outline btn-danger">
+                                                                                删除
+                                                                            </button>
+                                                                    </div>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </tr>
+                                                <tr>
+                                                    <th> 
+                                                        
+                                                            <label class="checkbox-inline i-checks">
+                                                                <input type="checkbox" value="option1">
+                                                            </label>
+                                                       
+                                                    </th>
+                                                    <th>#</th>
+                                                    <th>name</th>
+                                                    <th>createTime</th>
+                                                    <th ></th>
+                                                    <th></th>    
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                        <td>
+                                                                <label class="checkbox-inline i-checks">
+                                                                    <input type="checkbox" value="option1">
+                                                                </label>
+                                                            </td>
+                                                    <td>
+                                                        1
+                                                    </td>
+                                                    <td>
+                                                        Example
+                                                    </td>
+                                                    <td>
+                                                        Example
+                                                    </td>
+                                                    <td >
+                                                        <button type="button" class="btn btn-outline btn-primary">
+                                                            修改
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-outline btn-warning">
+                                                            删除
+                                                        </button>
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <label class="checkbox-inline i-checks">
+                                                                    <input type="checkbox" value="option1">
+                                                                </label>
+                                                            </td>
+                                                        <td>
+                                                            1
+                                                        </td>
+                                                        <td>
+                                                            Example
+                                                        </td>
+                                                        <td>
+                                                            Example
+                                                        </td>
+                                                        <td >
+                                                            <button type="button" class="btn btn-outline btn-primary">
+                                                                修改
+                                                            </button>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-outline btn-warning">
+                                                                删除
+                                                            </button>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>
+                                                                    <label class="checkbox-inline i-checks">
+                                                                        <input type="checkbox" value="option1">
+                                                                    </label>
+                                                                </td>
+                                                            <td>
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                Example
+                                                            </td>
+                                                            <td>
+                                                                Example
+                                                            </td>
+                                                            <td >
+                                                                <button type="button" class="btn btn-outline btn-primary">
+                                                                    修改
+                                                                </button>
+                                                            </td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-outline btn-warning">
+                                                                    删除
+                                                                </button>
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td>
+                                                                        <label class="checkbox-inline i-checks">
+                                                                            <input type="checkbox" value="option1">
+                                                                        </label>
+                                                                    </td>
+                                                                <td>
+                                                                    1
+                                                                </td>
+                                                                <td>
+                                                                    Example
+                                                                </td>
+                                                                <td>
+                                                                    Example
+                                                                </td>
+                                                                <td >
+                                                                    <button type="button" class="btn btn-outline btn-primary">
+                                                                        修改
+                                                                    </button>
+                                                                </td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-outline btn-warning">
+                                                                        删除
+                                                                    </button>
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+        
+        
+                                            </tbody>
+                                           
+                                        </table>
+        
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+
+            </div>
+            <div class="footer">
+                <div class="pull-right">
+                    10GB of
+                    <strong>250GB</strong> Free.
+                </div>
+                <div>
+                    <strong>Copyright</strong> Example Company &copy; 2014-2015
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+  
+
+    <!-- Mainly scripts -->
+    <script src="../js/jquery-2.1.1.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="../js/inspinia.js"></script>
+    <script src="../js/plugins/pace/pace.min.js"></script>
+   
+    <script src="http://vjs.zencdn.net/6.6.3/video.js"></script>
+
+
+    <!-- iCheck -->
+    <script src="../js/plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>
+
+</body>
+
+</html>

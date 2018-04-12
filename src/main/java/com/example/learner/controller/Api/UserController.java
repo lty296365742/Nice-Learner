@@ -111,7 +111,6 @@ public class UserController {
                 }else {
                     return ResultUtil.error(100,"手机或邮箱格式错误");
                 }
-
             } else {
                 System.out.println("验签失败");
                 return ResultUtil.error(101,"1信息验证失败");

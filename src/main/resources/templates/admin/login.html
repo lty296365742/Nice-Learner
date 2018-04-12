@@ -157,7 +157,7 @@
                 var data=JSON.parse(r);
                 console.log(data.msg);
                 if (data.code == 0) {
-                    window.location.href = "http://localhost:1000/learner.me/";
+                    window.location.href = "http://localhost:1000/learner.me/admin/";
                 } else {
                     swal({
                         title: "登陆失败",
@@ -168,7 +168,7 @@
                         confirmButtonText: "找回密码",
                         closeOnConfirm: false
                     }, function () {
-                        window.location.href = "http://localhost:1000/learner.me/admin/password";
+                        window.location.href = "http://localhost:1000/learner.me/admin/password_reset";
                     });
                 }
             }
