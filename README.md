@@ -11,6 +11,13 @@
  - 开发工具: IntellJ IDEA
 
 
+#### 使用说明
+* 配置java,maven,Tomcat,确保环境正确。
+* 安装Redis 官网**http://redis.io/download**
+* 将项目导入进eclipse或者IDEA中,eclipse中要安装支持Spring boot的插件
+* 打开Redis连接,进入Redis安装根目录,运行命令。如:**C:\Users\DELL\Downloads\Redis-x64-3.2.100>redis-server.exe redis.windows.conf**
+* 运行项目,运行LearnerApplication程序启动入口,在浏览器中输入访问路径为**http://localhost:1000/learner.me/admin/** 即可访问后台.
+
 
 #### 技术选型
 ##### 后端技术
