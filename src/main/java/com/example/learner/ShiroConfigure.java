@@ -70,7 +70,8 @@ public class ShiroConfigure {
         filterChainDefinitionMap.put("/admin/**","anon");
         //开放测试url信息资源
         filterChainDefinitionMap.put("/test/**","anon");
-
+    /*    //开放基本页面资源
+        filterChainDefinitionMap.put("/header","anon");*/
         filterChainDefinitionMap.put("/users/password","anon");
         filterChainDefinitionMap.put("/logout","anon");
         //开放测试url

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>用户管理</title>
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet" />
+
+    <link th:href="@{/css/animate.css}" rel="stylesheet" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <!-- Sweet Alert -->
+    <link th:href="@{/css/plugins/sweetalert/sweetalert.css}" rel="stylesheet">
+
+</head>
+
+<body>
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation" th:include="/base/nav :: navigation"></nav>
+    <div id="page-wrapper" class="gray-bg">
+        <div class="border-bottom" th:include="/base/header :: headerTop"></div>
+        <div class="row wrapper border-bottom white-bg page-heading" th:fragment="headerNav">
+            <div class="col-lg-10">
+                <h2>评论管理</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">首页</a>
+                    </li>
+                    <li >
+                       消息管理
+                    </li>
+                    <li class="active">
+                        <strong>评论管理</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-content">
+
+                            <table class=" table table-stripped toggle-arrow-tiny" data-page-size="15">
+                                <thead>
+                                <tr colspan="7">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+
+                                                <input type="text" id="admin_name" name="admin_name" value="" placeholder="评论账号" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+
+                                                <input type="text" id="organization" name="organization" value="" placeholder="评论昵称" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+
+                                                <input type="text" id="account" name="account" value="" placeholder="Phone Or Email" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+
+                                                <select name="status" id="status" class="form-control">
+                                                    <option value="1" selected>有回复</option>
+                                                    <option value="0">无回复</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-sm-1">
+                                            <div class="form-group">
+
+                                                <button type="button" class="btn  btn-primary">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <th>#</th>
+                                    <th>账号</th>
+                                    <th>昵称</th>
+                                    <th>章节ID</th>
+                                    <th>创建时间</th>
+                                    <th data-hide="phone">回复状态</th>
+                                    <th class="text-right" data-sort-ignore="true">操作</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        <span class="label label-danger">有回复</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="btn-group">
+                                            <button class="btn-white btn btn-xs"  data-toggle="modal" data-target="#myModal">编辑</button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        2
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        <span class="label label-primary">无回复</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="btn-group">
+                                            <button class="btn-white btn btn-xs">编辑</button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="4" class="">
+                                        <ul class="pagination pull-right">
+                                            <li class=" disabled">
+                                                <a  href="#first">«</a>
+                                            </li>
+                                            <li class=" disabled">
+                                                <a  href="#prev">‹</a>
+                                            </li>
+                                            <li class=" active">
+                                                <a  href="#">1</a>
+                                            </li>
+                                            <li class="">
+                                                <a  href="#">2</a>
+                                            </li>
+                                            <li class="">
+                                                <a  href="#next">›</a>
+                                            </li>
+                                            <li class="">
+                                                <a  href="#last">»</a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="footer" th:include="/base/footer :: copyright"></div>
+    </div>
+</div>
+
+    <!-- 右边工具-->
+    <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">评论详情</h4><i class="glyphicon glyphicon-leaf"></i>
+                    <small class="font-bold">用户的评论及对应的回复.</small>
+                </div>
+                <div class="modal-body">
+                    <p><strong>评论</strong> 针对Html你怎么看？</p>
+                    <p><strong>回复</strong> 怎么看？我一般躺床上看。。。</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-danger">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Mainly scripts -->
+<script th:src="@{/js/jquery-2.1.1.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+<script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+
+<!-- Custom and plugin javascript -->
+<script  th:src="@{/js/inspinia.js}"></script>
+<script  th:src="@{/js/plugins/pace/pace.min.js}"></script>
+<!-- Sweet alert -->
+<script th:src="@{/js/plugins/sweetalert/sweetalert.min.js}"></script>
+
+
+</body>
+</html>

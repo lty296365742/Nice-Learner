@@ -30,6 +30,9 @@ import java.util.Set;
  *  统一对异常进行处理的类
  */
 @ControllerAdvice
+//当controller层的某个action抛出异常后
+//GlobalExceptionHandler就能捕获到
+//把异常交给handle方法处理
 public class GlobalExceptionHandler {
     // 日志记录工具
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>用户管理</title>
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet" />
+
+    <link th:href="@{/css/animate.css}" rel="stylesheet" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <!-- Sweet Alert -->
+    <link th:href="@{/css/plugins/sweetalert/sweetalert.css}" rel="stylesheet">
+
+</head>
+
+<body>
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation" th:include="/base/nav :: navigation"></nav>
+    <div id="page-wrapper" class="gray-bg">
+        <div class="border-bottom" th:include="/base/header :: headerTop"></div>
+        <div class="row wrapper border-bottom white-bg page-heading" th:fragment="headerNav">
+            <div class="col-lg-10">
+                <h2>用户管理</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">首页</a>
+                    </li>
+                    <li class="active">
+                        <strong>用户管理</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="ibox-content m-b-sm border-bottom">
+                <div class="row">
+
+                    <button type="button" class="btn btn-w-m btn-primary" data-toggle="modal" data-target="#addUser">添加</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-content">
+
+                            <table class=" table table-stripped toggle-arrow-tiny" data-page-size="15">
+                                <thead>
+                                <tr colspan="7">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="control-label" for="admin_name">Admin name</label>
+                                                <input type="text" id="admin_name" name="admin_name" value="" placeholder="Admin Name" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <label class="control-label" for="organization">Organization</label>
+                                                <input type="text" id="organization" name="organization" value="" placeholder="Organization" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <label class="control-label" for="account">Phone Or Email</label>
+                                                <input type="text" id="account" name="account" value="" placeholder="Phone Or Email" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="control-label" for="status">Status</label>
+                                                <select name="status" id="status" class="form-control">
+                                                    <option value="1" selected>Enabled</option>
+                                                    <option value="0">Disabled</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Account</th>
+                                    <th >Name</th>
+                                    <th>Organization</th>
+                                    <th>Create Time</th>
+                                    <th data-hide="phone">Status</th>
+                                    <th class="text-right" data-sort-ignore="true">Action</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        <span class="label label-danger">Disabled</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="btn-group">
+                                            <button class="btn-white btn btn-xs"  data-toggle="modal" data-target="#edit">Edit</button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        2
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        Example
+                                    </td>
+                                    <td>
+                                        <span class="label label-primary">Enable</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="btn-group">
+                                            <button class="btn-white btn btn-xs">Edit</button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="6" class="">
+                                        <ul class="pagination pull-right">
+                                            <li class=" disabled">
+                                                <a  href="#first">«</a>
+                                            </li>
+                                            <li class=" disabled">
+                                                <a  href="#prev">‹</a>
+                                            </li>
+                                            <li class=" active">
+                                                <a  href="#">1</a>
+                                            </li>
+                                            <li class="">
+                                                <a  href="#">2</a>
+                                            </li>
+                                            <li class="">
+                                                <a  href="#next">›</a>
+                                            </li>
+                                            <li class="">
+                                                <a  href="#last">»</a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        </div>
+        <div class="footer" th:include="/base/footer :: copyright"></div>
+    </div>
+</div>
+<div class="modal inmodal" id="addUser" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Add User</h4>
+                <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+            </div>
+            <div class="modal-body">
+                <div class="ibox float-e-margins">
+
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-7 b-r">
+
+                                <form class="m-t" role="form">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Name" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Email" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Password" required="">
+                                    </div>
+
+
+                                </form>
+                            </div>
+                            <div class="col-sm-5">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal inmodal" id="edit" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Edit User</h4>
+                <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+            </div>
+            <div class="modal-body">
+                <div class="ibox float-e-margins">
+
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-6 b-r">
+
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Account" required="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Name" required="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Email" required="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="createTime" required="">
+                                </div>
+
+
+
+                            </div>
+                            <div class="col-sm-6">
+
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="phone" required="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="organization" required="">
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control m-b" name="role">
+                                        <option>Admin</option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                        <option>option 4</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    状态
+
+                                    <div class="switch">
+
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" class="onoffswitch-checkbox" id="example2">
+                                            <label class="onoffswitch-label" for="example2">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Mainly scripts -->
+<script th:src="@{/js/jquery-2.1.1.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+<script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+
+<!-- Custom and plugin javascript -->
+<script  th:src="@{/js/inspinia.js}"></script>
+<script  th:src="@{/js/plugins/pace/pace.min.js}"></script>
+<!-- Sweet alert -->
+<script th:src="@{/js/plugins/sweetalert/sweetalert.min.js}"></script>
+
+
+</body>
+</html>
